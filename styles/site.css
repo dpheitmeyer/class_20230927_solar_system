@@ -1,0 +1,139 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    font-family: helvetica, sans-serif;
+    background-color: rgb(240, 240, 240);
+    padding-inline-start: 2rem;
+    padding-inline-end: 2rem;
+}
+
+header,
+main,
+footer {
+    max-width: 70rem; /* let it expand but keep it reasonable */
+    margin: 0 auto;
+}
+
+header {
+    padding: 1rem 0 2rem 0;
+    display: flex; 
+    /* header as flex parent lets the 
+       h1 and nav become flex items and 
+       live side by side */
+}
+
+header nav {
+    margin-top: 0.5rem;
+    align-content: flex-end;
+    flex-grow: 1;
+    /* allow the nav to expand to the 
+       width of the header */
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+nav ul {
+    display: flex;
+    justify-content: flex-end;
+    /* ul is now flex parent for the li children */
+
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    /* the above styles essentially remove the 
+       default list styles we get from the browser */
+}
+
+nav ul li {
+    margin-left: 1rem;
+}
+
+nav ul li a {
+    display: block;
+    /* turning the a elements into "block"
+       let them take a border and make 
+       the content + padding "clickable"
+       as links.  This is a common technique for
+       hyperlinks in navigation */
+}
+
+nav a:link,
+nav a:visited,
+nav a:hover,
+nav a:active {
+    color: black;
+    text-decoration: none;
+    padding: 0.5rem;
+    border-bottom: 2px solid transparent;
+}
+
+nav a:hover {
+    border-bottom: 2px solid black;
+    transition: border-color 0.5s;
+}
+
+nav li.login a,
+nav li.signup a {
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: white;
+    color: black;
+}
+
+nav li.login a:hover,
+nav li.signup a:hover {
+    color: white;
+    background-color: black;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+nav li.login a {
+    border-color: rgb(58, 80, 156);
+    color: rgb(58, 80, 156);
+}
+nav li.login a:hover {
+    color: white;
+    background-color: rgb(58, 80, 156);
+}
+
+div.container {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+
+div.container section img {
+    max-width: 100%;
+}
+
+div.container section {
+    flex-basis: calc(33.3333% - 1rem);
+    /* two gaps at 1.5rem each is 3rem,
+    and 3rem distributed across three items
+    is 1rem each, so 33.3333% - 1rem */
+    flex-grow: 0;
+    flex-shrink: 0;
+    border: 2px solid rgb(150,150,150);
+    padding: 1rem;
+    background-color: white;
+}
+
+section h2 {
+    text-align: center;
+}
+
+section ul {
+    padding-inline-start: 1rem;
+}
+
+footer {
+    margin-block-start: 3rem;
+    padding-block-start: 1rem;
+    margin-block-end: 2rem;
+    border-block-start: 2px solid rgb(150, 150, 150);
+}
